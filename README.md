@@ -11,5 +11,5 @@ OOP
 Recursividad
   • Construya una función que escriba en pantalla los números del 1 al 100 sin usar ningún ciclo.
 
-en el proyecto de recursividad se encuentra el modelo de la bd del proyecto el cual se llama QueryDB
-en el proyecto de recursividad tambien se encuentra la tarea de (T-SQL)
+1. En el proyecto de recursividad se encuentra el modelo de la bd del proyecto el cual se llama QueryDB
+2. En el proyecto de recursividad tambien se encuentra la tarea de (T-SQL)
