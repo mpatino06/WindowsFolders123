@@ -1,0 +1,76 @@
+﻿@using WindowsFolders123.Core.Models;
+@model List<Files>
+
+<br />
+<div class="row">
+	<div id="divFiles">
+
+
+		@if (Model.Count > 0)
+		{
+			<div class="col-md-12">
+				<div class="box-solid">
+					<div class="box-body table-responsive no-padding">
+
+						<table class="table table-hover table-bordered" id="TableFile">
+							<thead>
+								<tr>
+									<th>
+										Id
+									</th>
+									<th>
+										Descripción
+									</th>
+									<th>
+
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								@{
+									foreach (var item in Model)
+									{
+										<tr>
+											<td>@item.Id</td>
+											<td>@item.FileName</td>
+											<td class="action-column">
+												<div class="btn-group">
+													<button type="button"
+															class="btn btn-default btn-edit btn-sm btn-success"
+															id="btnSelect_@item.Id"
+															data-app=""
+															data-value="@item.Id"
+															title="Editar Archivo"
+															onclick="editActividadEconomica($(this))"
+															value="Editar Region">
+														<i class="glyphicon glyphicon-edit">&ensp;Editar</i>
+													</button>
+													<button type="button"
+															class="btn btn-default btn-sm btn-remove btn-danger"
+															id="btnDelete_@item.Id"
+															data-value="@item.Id"
+															data-target="#dialog-container"
+															title="Eliminar Archivo">
+														<i class="glyphicon glyphicon-remove">&ensp;Elimnar</i>
+													</button>
+												</div>
+											</td>
+										</tr>
+									}
+								}
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+
+		}
+		else
+		{
+			<span class="help-block"> No Existen datos para mostrar</span>
+		}
+
+	</div>
+
+
+</div>

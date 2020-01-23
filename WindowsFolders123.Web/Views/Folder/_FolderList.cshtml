@@ -1,0 +1,81 @@
+﻿@using WindowsFolders123.Core.Models;
+@model List<Folder>
+
+<br />
+<div class="row">
+	<div id="divFolder">
+
+
+		@if (Model.Count > 0)
+		{
+			<div class="col-md-12">
+				<div class="box-solid">
+					<div class="box-body table-responsive no-padding">
+
+						<table class="table table-hover table-bordered" id="TableFolder">
+							<thead>
+								<tr>
+									<th>
+										Id
+									</th>
+									<th>
+										Descripción
+									</th>
+									<th>
+
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								@{
+									foreach (var item in Model)
+									{
+										<tr>
+											<td>@item.Id</td>
+											<td>@item.PathFile</td>	
+											<td class="action-column">
+												<div class="btn-group">
+													<button type="button"
+															class="btn btn-default btn-edit btn-sm btn-success"
+															id="btnSelect_@item.Id"
+															data-app=""
+															data-value="@item.Id"
+															title="Ver SubCarpetas"
+															onclick="subFolder(@item.Id)"
+															value="Ver SubCarpetas">
+														<i class="glyphicon glyphicon-list">&ensp;SubCarpetas</i>
+													</button>
+												</div>
+
+												<div class="btn-group">
+													<button type="button"
+															class="btn btn-default btn-edit btn-sm btn-default"
+															id="btnSelect_@item.Id"
+															data-app=""
+															data-value="@item.Id"
+															title="Ver Archivos"
+															onclick="subFiles(@item.Id)"
+															value="Ver Archivos">
+														<i class="glyphicon glyphicon-file">&ensp;Archivos</i>
+													</button>
+												</div>
+											</td>
+										</tr>
+									}
+								}
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+
+		}
+		else
+		{
+			<span class="help-block"> No Existen datos para mostrar</span>
+		}
+
+	</div>
+
+
+</div>

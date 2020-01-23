@@ -1,0 +1,29 @@
+﻿@model WindowsFolders123.Core.Models.Folder
+<div>
+
+	@using (Html.BeginForm("", "", FormMethod.Post, new { enctype = "multipart/form-data", id = "formSubFolderAdd" }))
+	{
+		@Html.HiddenFor(model => model.Id)
+
+		@Html.HiddenFor(x => x.Parent, new { @value = @ViewBag.FolderId })
+		@Html.HiddenFor(x => x.IsSubFolder, new { @value = "true"})
+		<div class="row">
+			<div class="col-lg-12">
+				<label class="control-label">Codigo</label>
+				<div class="input-group">
+					@Html.TextBoxFor(x => x.Id, new { @class = "form-control", @readonly = "readonly" })
+				</div>
+				@Html.ValidationMessageFor(x => x.Id, "", new { @class = "text-danger" })
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<label class="control-label">Descripción</label>
+				<div class="input-group" style="width:100%">
+					@Html.TextAreaFor(x => x.PathFile, new { @class = "form-control", })
+				</div>
+				@Html.ValidationMessageFor(x => x.PathFile, "", new { @class = "text-danger" })
+			</div>
+		</div>
+	}
+</div>

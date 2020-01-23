@@ -1,0 +1,71 @@
+﻿@using WindowsFolders123.Core.Models;
+@model List<Folder>
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="panel panel-default panel-table">
+	<div class="panel-heading">
+		<div class="row">
+			<div class="col col-xs-6">
+				<h3 class="panel-title">Carpetas</h3>
+			</div>
+		</div>
+	</div>
+	<div class="panel-body">
+
+		<span class="help-block">Haga clic sobre cualquiera de las diferentes opciones disponibles</span>
+
+		<div class="row">
+			<div class="col-md-3 col-lg-offset-9">
+				<button type="button" value="Search" class="btn btn-success btnSearch pull-right" onclick="newFolder()">
+					<i class="glyphicon glyphicon-plus"></i> Nueva Carpeta
+				</button>
+			</div>
+		</div>
+
+
+		<div class="col-md-12">
+			<div class="box-solid">
+				@Html.Partial("_FolderList", Model)
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" id="modalFolderAdd">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+
+				<span class="modal-title">Crear/Editar Región</span>
+				<a href="#" class="close" data-dismiss="modal">&times;</a>
+			</div>
+			<div class="modal-body" id="divModalFolderAdd">
+			</div>
+			<div class="modal-footer">
+
+				<div style="text-align:center;display:none" id="loaderDiv">
+					<img src="~/images/load.gif" width="150" />
+				</div>
+
+				<button type="button" id="btnPrint" name="btnPrint" onclick="saveFolder()" class="btn btn-primary">
+					<i class="glyphicon glyphicon-print"></i>Guardar
+				</button>
+				<button type="button" class="btn btn-info" data-dismiss="modal">
+					<i class="glyphicon glyphicon-copy"></i>Salir
+				</button>
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
+
+@section scripts {
+
+	<script src="~/js/folder.js"></script>
+
+}
